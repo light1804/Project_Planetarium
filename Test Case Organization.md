@@ -1,4 +1,4 @@
-# Example Test Case Creation: Planetarium User Registration
+# Test Case Creation: Planetarium User Registration
 - Use Case Id: 1
 - Description: Users should be able to open a new User account with the Planetarium
 - Actors:
@@ -65,7 +65,7 @@ Use positive and negative test data found for [credentials length](#requirement-
 |and {User Redirected to Login Page Result}|new user||{User Redirected to Login Page Result}|
 
 
-
+********************************************************************************************************************************************************************************************
 
 
 ## Test case 2 - User login into Planetarium
@@ -102,6 +102,9 @@ Attempt Count	|Result after Last Attempt	                    |System Feedback
 - Background Data:
     - Login Page for Planetarium: http://localhost:8080/
 
+#### Acceptance Testing Data
+- The login page should be simple to navigate, with accessible password reset options and feedback on incorrect logins.
+
 
 ### Test Scenarios
 
@@ -124,13 +127,15 @@ LexLuthorIsSchemingAgainOhNo!!!	    BatmanAndRobinToTheRescue20202	    3	       
 
 ### Parameterized Test Scenario
 
-        Step	                                            Actor	                        Data	                Expected Result
-Given the user is on the login page     	            Registered User	        http://localhost:8080/login	
-When the user enters {username} and {password}	        Registered User	            {username}, {password}	
-Then the user should see a feedback message saying {Welcome to the Home Page}	Registered User		                        {Valid Login}
-If the user put invalid credentials should see a feedback message saying {Invalid Login}	Registered User		               {InValid Login}
---And the user should be redirected based on {Login Result}	Registered User		                                    {Welcome to the Home Page}
+        Step	                                                                    Actor	                        Data	                Expected Result
+Given the user is on the login page     	                                        Registered User	        http://localhost:8080/	
+When the user enters {username} and {password}	                                    Registered User	            {username}, {password}	
+Then the user should see a feedback message saying {Welcome to the Home Page}	        Registered User		                                 {Valid Login}
+If the user put invalid credentials should see a feedback message saying {Invalid Login}	Registered User		                             {InValid Login}
+--And the user should be redirected based on {Login Result}	Registered User		                                                        {Welcome to the Home Page}
 
+
+********************************************************************************************************************************************************************************************
 
 #### Test case 3 - Add planets and moons to Planetarium
 - Use Case Id: 3
@@ -145,10 +150,10 @@ Logged Out	                      http://localhost:8080/                         
 
 
 ### Requirements: Planets and moons should have unique names and display accurately
-Planet Name (Unique)	Moon Name (Unique)	Expected Display Result
-Earth(Planet 1)	        Luna	            Both Planet and Moon display
-Mars (Planet 2)	        Titan	            Both Planet and Moon display
-Duplicate Planet (e.g., "Mars")	Duplicate Moon (e.g., "Luna")	Display error for duplicates
+Planet Name (Unique)	            Moon Name (Unique)	            Expected Display Result
+Earth(Planet 1)	                    Luna	                        Both Planet and Moon display
+Mars (Planet 2)	                    Titan	                        Both Planet and Moon display
+Duplicate Planet (e.g., "Mars")	    Duplicate Moon (e.g., "Luna")	Display error for duplicates
 
 #### Environment Data
 - Browser: Edge
@@ -156,6 +161,9 @@ Duplicate Planet (e.g., "Mars")	Duplicate Moon (e.g., "Luna")	Display error for 
 - Version of Planetarium: 1.0
 - Background Data:
     Planetarium Home Page URL: http://localhost:8080/planetarium
+
+#### Acceptance Testing Data
+-The layout should make it easy to locate planets and moons, with search or filtering options available
 
 ## Test Scenarios
 
@@ -167,14 +175,14 @@ Logged Out	    http://localhost:8080/                           User navigates t
 
 
 ## Decision Table for Planet and Moon Uniqueness Requirement Testing
-Planet Name	                    | Moon Name |	Display Outcome |	                                
+Planet Name	                    | Moon Name |	                         Display Outcome |	                                
 |-|-|-|-|
-Earth(Planet 1)	                    | Luna (Moon 1)	| Planet and Moon display	               
-Mars (Planet 2)	                    | Titan (Moon 2)| Planet and Moon display	                
-Mars (Duplicate)                    |	Luna (Duplicate)|not exist/Duplicate error displayed	    
-Jupiter123456789123456789123456      |Callisto123456789123456789123456 | not exist/Duplicate error displayed
-Venus (Planet 4)                        Callisto123456789123456789123456 |not exist/Duplicate error displayed
-Jupiter123456789123456789123456   |  Europa (Moon 4)  |  not exist/Duplicate error displayed
+Earth(Planet 1)	                    |   Luna (Moon 1)	|                Planet and Moon display	               
+Mars (Planet 2)	                    |   Titan (Moon 2)|                  Planet and Moon display	                
+Mars (Duplicate)                    |	Luna (Duplicate)|                   not exist/Duplicate error displayed	    
+Jupiter123456789123456789123456     |   Callisto123456789123456789123456 |   not exist/Duplicate error displayed
+Venus (Planet 4)                    |   Callisto123456789123456789123456 |  not exist/Duplicate error displayed
+Jupiter123456789123456789123456   |     Europa (Moon 4)  |                  not exist/Duplicate error displayed
 
 ## Parameterized Test Scenario
 Steps |	Actor |	Data |	Expected Result |
@@ -188,7 +196,7 @@ New planet and moon added with character length requirement |	Registered User	||
 
 
 
-
+********************************************************************************************************************************************************************************************
 
 
 ## Test Case 4:Add new Planets to the Planetarium
@@ -226,6 +234,9 @@ Planet Name	                Image Provided	                Expected Outcome
 - Background Data:
     Planetarium Home Page URL: http://localhost:8080/planetarium
 
+#### Acceptance Testing Data
+-Users should easily navigate to the “Add Planet” feature, with prompts that guide input fields like name, image, and details.
+
 
 
 ## Test Scenarios
@@ -247,7 +258,7 @@ When the user provides {planet name} and optionally uploads an image	|Registered
 Then the user should see a feedback message saying {Outcome}	| Registered User	| |	{Outcome}
 And the planet should be added to the Planetarium if data is valid	| Registered User	| |	Planet appears in list if added successfully
 
-
+********************************************************************************************************************************************************************************************
 
 ## Test Case 5:Remove Planets from the Planetarium
 - Use Case Id: 5
@@ -256,9 +267,9 @@ And the planet should be added to the Planetarium if data is valid	| Registered 
     - Registered User 
 
 ## Requirements: Users should only be able to remove planets they have added
- User Name	                                                     Planet Name	   Planet Owner 	Expected Outcome
-BatmanAndRobinToTheRescue20202	                             "Zephyron"	        3	        Planet removed successfully
-BatmanAndRobinToTheRescue20202	                             "Earth"	       1	       Failed to remove
+ User Name	                                                Planet Name	   Planet Owner 	Expected Outcome
+BatmanAndRobinToTheRescue20202	                             Zephyron	        3	        Planet removed successfully
+BatmanAndRobinToTheRescue20202	                             Earth	            1	       Failed to remove
 
 
 ## Requirements: Planet removal should trigger a confirmation prompt before deletion
@@ -266,11 +277,28 @@ Confirmation Response	        Expected Outcome
 Confirm	                        Planet removed successfully
 Cancel	                        Planet remains in the Planetarium
 
+
+#### Environment Data
+- Browser: Edge
+- Operating System: Windows 10
+- Version of Planetarium: 1.0
+- Background Data:
+    Planetarium Home Page URL: http://localhost:8080/planetarium
+
+
+
+
+#### Acceptance Testing Data
+-Users should be prompted to confirm deletion to avoid accidental removals, with a clear description of what will be removed.
+
 ## Decision Table for Planet Removal Access Control Testing
-User Name	                             Planet Name	   Planet Owner		            Expected Outcome
-BatmanAndRobinToTheRescue20202       "Zephyron"	            3	        	Planet removed successfully
-BatmanAndRobinToTheRescue20202	        "Earth"	           	 1      	Failed to remove
-Batman                                  "Earth"	                1	       	Failed to remove
+User Name	                           Planet Name	   Planet Owner		            Expected Outcome
+BatmanAndRobinToTheRescue20202          Zephyron	        3	        	Planet removed successfully
+BatmanAndRobinToTheRescue20202	        Earth	           	1      	        Failed to remove
+Batman                                  Earth	            1	       	    Failed to remove
+
+
+
 
 ## Decision Table for Confirmation Prompt Requirement Testing
 Confirmation Response	    Action	                            Expected Outcome
@@ -284,7 +312,7 @@ When the user selects {planet name} and attempts to delete it	Registered User	  
 Then a confirmation prompt should appear	                    Registered User		
 And if the user confirms, {Outcome}	Registered User		                                                            Planet is removed if confirmed, retained if canceled
 
-
+********************************************************************************************************************************************************************************************
 
 
 ## Test Case 6:Add Moons to the Planetarium associated with a Planet
@@ -298,20 +326,20 @@ And if the user confirms, {Outcome}	Registered User		                           
 Planet Name                                         Moon Name                                                                    | Expected Outcome      
 |-|-|-|
 |(0 characters)|                               (0 characters)                                                                   Error: Moon name is required                 
- MysticGalaxyPlanetAlphaCentauri  |             CelestialWandererSatellite1                                          Moon added successfully 
- BeyondTheEventHorizonSuperPlanetX1 |            GalacticOrbitSpectreSatellite001                                          Moon not added
+ MysticGalaxyPlanetAlphaCentauri  |             CelestialWandererSatellite1                                                     Moon added successfully 
+ BeyondTheEventHorizonSuperPlanetX1 |            GalacticOrbitSpectreSatellite001                                               Moon not added
 
 ## Requirement: Moons should be associated with a specific planet
-User	                        Planet	Moon Name	    Expected Outcome
+Username	                     Planet	Moon Name	    Expected Outcome
 BatmanAndRobinToTheRescue20202	Earth	Luna	    Moon added successfully under "Earth"
 BatmanAndRobinToTheRescue20202	Mars	Luna	    Moon added successfully under "Mars"
 BatmanAndRobinToTheRescue20202	Earth	Titan	    Error: Duplicate moon name for "Earth"
 
 ## Requirement: Moons should allow an associated image but it should not be required
-Moon Name	        Planet	Image Provided	     Expected Outcome
-"Phobos"	        Mars	Yes         	        Moon added successfully
-"Deimos"	        Mars	No	                    Moon added successfully
-"Titan"	          Saturn	Yes (duplicate)	        Error: Duplicate moon
+Moon Name	       Planet	Image Provided	     Expected Outcome
+Phobos	            Mars	Yes         	        Moon added successfully
+Deimos	            Mars	No	                    Moon added successfully
+Titan	            Saturn	Yes (duplicate)	        Error: Duplicate moon
 
 
 
@@ -323,26 +351,28 @@ Moon Name	        Planet	Image Provided	     Expected Outcome
 - Background Data:
     Planetarium Home Page URL: http://localhost:8080/planetarium
 
+#### Acceptance Testing Data
+-The interface should guide users in associating the moon with a specific planet, with clearly labeled fields for entry.
 
 
 ##  Test Scenarios
 ## Decision Table for Moon Name Character Length and Uniqueness Requirement Testing
-Moon Name	                    Planet     	Image Provided	       	                Expected Outcome
-(0 characters)	                 Earth	    Yes	                    	        Error: Moon name is required
-"CelestialWandererSatellite"	    Mars	Yes                                      Moon added successfully
-"GalacticOrbitSpectreSatellite001"	Earth	No             		                            Error: Moon name exceeds 30 chars
-"Titan"	                            Earth	No	               	                Error: Duplicate moon name for planet
-"Europa"	                        Jupiter	Yes	                	                        Moon added successfully
+Moon Name	                        Planet     	Image Provided	       	                Expected Outcome
+(0 characters)	                    Earth	    Yes	                    	            Error: Moon name is required
+CelestialWandererSatellite	        Mars	    Yes                                     Moon added successfully
+GalacticOrbitSpectreSatellite001	Earth	    No             		                    Error: Moon name exceeds 30 chars
+Titan                               Earth	    No	               	                    Error: Duplicate moon name for planet
+Europa	                            Jupiter	    Yes	                	                Moon added successfully
 
 
 ## Parameterized Test Scenario
-Step	                                                    Actor	                              Data	                                              Expected   Result
-Given the user is on the Add Moon page and logged in	Registered User         	            http://localhost:8080/planetarium	
+Step	                                                        Actor	                              Data	                                    Expected Result
+Given the user is on the Add Moon page and logged in	    Registered User         	            http://localhost:8080/planetarium	
 When the user selects {planet} and provides {moon name}, optionally uploads an image	Registered User	        {planet}, {moon name}	
 Then the user should see a feedback message saying {Outcome}	Registered User		                                                                {Outcome}
-And the moon should be added under the selected planet if data is valid	Registered User		                                                Moon appears under planet if added successfully
+And the moon should be added under the selected planet if data is valid	    Registered User		                                                Moon appears under planet if added successfully
 
-
+********************************************************************************************************************************************************************************************
 
 ## Test Case 7: Remove Moons from the Planetarium
 - Use Case Id: 7
@@ -353,8 +383,8 @@ And the moon should be added under the selected planet if data is valid	Register
 
 ## Users should only be able to remove moons they have added
 User	                             Planet     Moon Name	Moon Owner	    Expected Outcome
-BatmanAndRobinToTheRescue20202	      Earth	    "Luna"	    1	        Moon removed successfully
-BatmanAndRobinToTheRescue20202	       Mars	    "Phobos"	none        Error: Access denied
+BatmanAndRobinToTheRescue20202	      Earth	    Luna	    1	        Moon removed successfully
+BatmanAndRobinToTheRescue20202	       Mars	    Phobos	    none        Error: Access denied
 
 #### Environment Data
 - Browser: Edge
@@ -363,19 +393,23 @@ BatmanAndRobinToTheRescue20202	       Mars	    "Phobos"	none        Error: Acces
 - Background Data:
     Planetarium Home Page URL: http://localhost:8080/planetarium
 
+#### Acceptance Testing Data
+-Users should receive a prompt to confirm removal and a final success message, ensuring transparency in the deletion process
+
 ## Test Scenarios
 Decision Table for Moon Removal Access Control Testing
 User	                        Planet	Moon Name	Planet Owner		    Expected Outcome
-BatmanAndRobinToTheRescue20202	Earth	"Luna"	   1	        	Moon removed successfully
-BatmanAndRobinToTheRescue20202	Mars	"Phobos"	none	    	Error: Access denied
-Batman	                        Saturn	"Titan"	    none	    	Moon removed successfully
+BatmanAndRobinToTheRescue20202	Earth	Luna	    1	        	Moon removed successfully
+BatmanAndRobinToTheRescue20202	Mars	Phobos	    none	    	Error: Access denied
+Batman	                        Saturn	Titan	    none	    	Moon removed successfully
 
 ## Parameterized Test Scenario
-Step	                                                            Actor	                         Data	                                Expected Result
-Given the user is on the Planetarium home page and logged in	Registered User	            http://localhost:8080/planetarium	
-When the user selects {planet} and {moon name} and attempts to delete it	Registered User	{planet}, {moon name}	
-Then a confirmation prompt should appear	Registered User		
-And if the user confirms, {Outcome}	                            Registered User		                                 Moon is removed if confirmed, retained if canceled
+Step	                                                                     Actor	                         Data	                         Expected Result
+|-|-|-|
+Given the user is on the Planetarium home page and logged in	            Registered User	            http://localhost:8080/planetarium	
+When the user selects {planet} and {moon name} and attempts to delete it	Registered User	            {planet}, {moon name}	
+Then a confirmation prompt should appear	                                Registered User		                                            {Outcome}
+And if the user confirms, {Outcome}	                                        Registered User		                       Moon is removed if confirmed, retained if canceled
 
 
 

@@ -126,8 +126,7 @@ LexLuthorIsSchemingAgainOhNo!!!	    BatmanAndRobinToTheRescue20202	    3	       
 
 
 ### Parameterized Test Scenario
-
-        Step	                                                                    Actor	                        Data	                Expected Result
+Step                                                                                Actor                            Data                      Excepted Result
 Given the user is on the login page     	                                        Registered User	        http://localhost:8080/	
 When the user enters {username} and {password}	                                    Registered User	            {username}, {password}	
 Then the user should see a feedback message saying {Welcome to the Home Page}	        Registered User		                                 {Valid Login}

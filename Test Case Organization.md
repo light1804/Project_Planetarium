@@ -104,7 +104,7 @@ Attempt Count	|Result after Last Attempt	                    |System Feedback
 
 #### Acceptance Testing Data
 - The login page should be simple to navigate, with accessible password reset options and feedback on incorrect logins.
-
+Credentials length, username uniqueness, alert for reset password or locked account
 
 ### Test Scenarios
 
@@ -122,7 +122,7 @@ BatmanAndRobinToTheRescue20202	    GordonIsMyHeroForeverGoodMan11	        Login 
 Username	                            Password	                Attempt Count	                  Result	                    
 BatmanAndRobinToTheRescue20202	    LexLuthorIsSchemingAgainOhNo!!!	    1	                     Login failed Please Try Again	        
 BatmanAndRobinToTheRescue20202	    (0)	                                2	                      Login failed Please Try Again	       
-LexLuthorIsSchemingAgainOhNo!!!	    BatmanAndRobinToTheRescue20202	    3	                     Account locked	        "
+LexLuthorIsSchemingAgainOhNo!!!	    BatmanAndRobinToTheRescue20202	    3	                     Account locked	        
 
 
 ### Parameterized Test Scenario
@@ -409,6 +409,38 @@ Given the user is on the Planetarium home page and logged in	            Registe
 When the user selects {planet} and {moon name} and attempts to delete it	Registered User	            {planet}, {moon name}	
 Then a confirmation prompt should appear	                                Registered User		                                            {Outcome}
 And if the user confirms, {Outcome}	                                        Registered User		                       Moon is removed if confirmed, retained if canceled
+
+
+
+
+## Acceptance Summary for The Planetarium Project
+
+Project Overview: 
+The Planetarium is a web application developed by Space Initiative to provide astronomers with a comprehensive tool for tracking celestial bodies. This tool is designed to offer enhanced accuracy, user-friendly navigation, and reliable data access for both professional astronomers and enthusiasts. As part of the testing team, the focus was to ensure the application met functional, usability, and performance standards.
+
+Acceptance Testing Data															
+-All Use Cases Inspired Confidence
+	Security prompts, confirmation dialogs, and well-labeled actions contributed to user trust, especially in critical actions like login and data deletion.
+
+-Visual Cohesion in Majority of Use Cases
+    The application maintained a consistent look across different features, particularly in the celestial body tracking interface.	
+
+-Usability Issue	
+    Users found the process of associating moons with planets initially confusing due to limited guidance, suggesting a need for more detailed prompts or helper text.														
+
+
+
+
+- The login page should be simple to navigate, with accessible password reset options and feedback on incorrect logins.
+Credentials length, username uniqueness, alert for reset password or locked account
+
+-The layout should make it easy to locate planets and moons, with search or filtering options available
+
+-Users should easily navigate to the “Add Planet” feature, with prompts that guide input fields like name, image, and details.
+
+-Users should be prompted to confirm deletion to avoid accidental removals, with a clear description of what will be removed.
+
+--Users should receive a prompt to confirm removal and a final success message, ensuring transparency in the deletion process
 
 
 
